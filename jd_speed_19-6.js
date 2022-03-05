@@ -31,7 +31,7 @@ let wait = ms => new Promise(resolve => setTimeout(resolve, ms));
   await wait(100)
   //以下i为 循环1次 运行的CK数量
   for (let j = 0; j < randomCount; ++j)
-    for (let i = 0;  i < 1; i++) {
+    for (let i = 0;  i < 12; i++) {
       if (cookiesArr[i]) {
         cookie = cookiesArr[i];
         $.UserName = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1])
