@@ -4,16 +4,17 @@
 ============Quantumultx===============
 [task_local]
 #极速版抢卷
-58 59 13 * * * https://raw.githubusercontent.com/KingRan/KR/main/jd_29_8.js, tag=极速版抢卷, enabled=true
+56 59 13 * * * https://raw.githubusercontent.com/KingRan/KR/main/jd_29_8.js, tag=极速版抢卷, enabled=true
 ================Loon==============
 [Script]
-cron "58 59 13 * * *" script-path=https://raw.githubusercontent.com/KingRan/KR/main/jd_29_8.js,tag=极速版抢卷
+cron "56 59 13 * * *" script-path=https://raw.githubusercontent.com/KingRan/KR/main/jd_29_8.js,tag=极速版抢卷
 ===============Surge=================
-极速版抢卷 = type=cron,cronexp="58 59 13 * * *",wake-system=1,timeout=3600,script-path=https://raw.githubusercontent.com/KingRan/KR/main/jd_29_8.js
+极速版抢卷 = type=cron,cronexp="56 59 13 * * *",wake-system=1,timeout=3600,script-path=https://raw.githubusercontent.com/KingRan/KR/main/jd_29_8.js
 ============小火箭=========
-极速版抢卷 = type=cron,script-path=https://raw.githubusercontent.com/KingRan/KR/main/jd_29_8.js, cronexpr="58 59 13 * * *", timeout=3600, enable=true
+极速版抢卷 = type=cron,script-path=https://raw.githubusercontent.com/KingRan/KR/main/jd_29_8.js, cronexpr="56 59 13 * * *", timeout=3600, enable=true
  */
 const $ = new Env('领59-20券-CK1');
+//命名任务名称
 const moment = require('moment');
 //进容器安装依赖： npm install -g moment
 const notify = $.isNode() ? require('./sendNotify') : '';
@@ -40,8 +41,9 @@ let wait = ms => new Promise(resolve => setTimeout(resolve, ms));
     return;
   }
   await wait(100)
+  //以下i为 循环1次 运行的CK数量
   for (let j = 0; j < randomCount; ++j)
-    for (let i = 0;  i < 2; i++) {
+    for (let i = 0;  i < 1; i++) {
       if (cookiesArr[i]) {
         cookie = cookiesArr[i];
         $.UserName = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1])
